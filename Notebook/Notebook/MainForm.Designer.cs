@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsApp1
+﻿namespace Notebook
 {
     partial class MainForm
     {
@@ -30,10 +30,6 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.mFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.mEdit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mFormat = new System.Windows.Forms.ToolStripMenuItem();
-            this.mView = new System.Windows.Forms.ToolStripMenuItem();
-            this.mHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mFileNew = new System.Windows.Forms.ToolStripMenuItem();
             this.mFileOpen = new System.Windows.Forms.ToolStripMenuItem();
             this.mFileSave = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,6 +37,7 @@
             this.mFilePageParam = new System.Windows.Forms.ToolStripMenuItem();
             this.mFilePrint = new System.Windows.Forms.ToolStripMenuItem();
             this.mFileExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditCancel = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditCut = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditCopy = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,11 +47,14 @@
             this.mEditGo = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditGiveAll = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditTime = new System.Windows.Forms.ToolStripMenuItem();
+            this.mFormat = new System.Windows.Forms.ToolStripMenuItem();
             this.mFormatTransfer = new System.Windows.Forms.ToolStripMenuItem();
             this.mFormatFont = new System.Windows.Forms.ToolStripMenuItem();
+            this.mView = new System.Windows.Forms.ToolStripMenuItem();
             this.mViewStatusStrip = new System.Windows.Forms.ToolStripMenuItem();
+            this.mHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.mHelpAboutProgram = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.statusLab1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLinesCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusLab2 = new System.Windows.Forms.ToolStripStatusLabel();
@@ -64,8 +64,11 @@
             this.statusLab4 = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusCharCount = new System.Windows.Forms.ToolStripStatusLabel();
             this.notebox = new System.Windows.Forms.TextBox();
+            this.printDocument = new System.Drawing.Printing.PrintDocument();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
+            this.pageSetupDialog = new System.Windows.Forms.PageSetupDialog();
             this.menuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -96,6 +99,62 @@
             this.mFile.Size = new System.Drawing.Size(48, 20);
             this.mFile.Text = "Файл";
             // 
+            // mFileNew
+            // 
+            this.mFileNew.Name = "mFileNew";
+            this.mFileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.mFileNew.Size = new System.Drawing.Size(226, 22);
+            this.mFileNew.Text = "Создать";
+            this.mFileNew.Click += new System.EventHandler(this.mFileNew_Click);
+            // 
+            // mFileOpen
+            // 
+            this.mFileOpen.Name = "mFileOpen";
+            this.mFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.mFileOpen.Size = new System.Drawing.Size(226, 22);
+            this.mFileOpen.Text = "Открыть...";
+            this.mFileOpen.Click += new System.EventHandler(this.mFileOpen_Click);
+            // 
+            // mFileSave
+            // 
+            this.mFileSave.Name = "mFileSave";
+            this.mFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.mFileSave.Size = new System.Drawing.Size(226, 22);
+            this.mFileSave.Text = "Сохранить";
+            this.mFileSave.Click += new System.EventHandler(this.mFileSave_Click);
+            // 
+            // mFileSaveAs
+            // 
+            this.mFileSaveAs.Name = "mFileSaveAs";
+            this.mFileSaveAs.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.S)));
+            this.mFileSaveAs.Size = new System.Drawing.Size(226, 22);
+            this.mFileSaveAs.Text = "Сохранить как...";
+            this.mFileSaveAs.Click += new System.EventHandler(this.mFileSaveAs_Click);
+            // 
+            // mFilePageParam
+            // 
+            this.mFilePageParam.Name = "mFilePageParam";
+            this.mFilePageParam.Size = new System.Drawing.Size(226, 22);
+            this.mFilePageParam.Text = "Параметры страницы";
+            this.mFilePageParam.Click += new System.EventHandler(this.mFilePageParam_Click);
+            // 
+            // mFilePrint
+            // 
+            this.mFilePrint.Name = "mFilePrint";
+            this.mFilePrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.mFilePrint.Size = new System.Drawing.Size(226, 22);
+            this.mFilePrint.Text = "Печать...";
+            this.mFilePrint.Click += new System.EventHandler(this.mFilePrint_Click);
+            // 
+            // mFileExit
+            // 
+            this.mFileExit.Name = "mFileExit";
+            this.mFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
+            this.mFileExit.Size = new System.Drawing.Size(226, 22);
+            this.mFileExit.Text = "Выход";
+            this.mFileExit.Click += new System.EventHandler(this.mFileExit_Click);
+            // 
             // mEdit
             // 
             this.mEdit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -111,80 +170,6 @@
             this.mEdit.Name = "mEdit";
             this.mEdit.Size = new System.Drawing.Size(59, 20);
             this.mEdit.Text = "Правка";
-            // 
-            // mFormat
-            // 
-            this.mFormat.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mFormatTransfer,
-            this.mFormatFont});
-            this.mFormat.Name = "mFormat";
-            this.mFormat.Size = new System.Drawing.Size(62, 20);
-            this.mFormat.Text = "Формат";
-            // 
-            // mView
-            // 
-            this.mView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mViewStatusStrip});
-            this.mView.Name = "mView";
-            this.mView.Size = new System.Drawing.Size(39, 20);
-            this.mView.Text = "Вид";
-            // 
-            // mHelp
-            // 
-            this.mHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mHelpAboutProgram});
-            this.mHelp.Name = "mHelp";
-            this.mHelp.Size = new System.Drawing.Size(65, 20);
-            this.mHelp.Text = "Справка";
-            // 
-            // mFileNew
-            // 
-            this.mFileNew.Name = "mFileNew";
-            this.mFileNew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.mFileNew.Size = new System.Drawing.Size(226, 22);
-            this.mFileNew.Text = "Создать";
-            // 
-            // mFileOpen
-            // 
-            this.mFileOpen.Name = "mFileOpen";
-            this.mFileOpen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.mFileOpen.Size = new System.Drawing.Size(226, 22);
-            this.mFileOpen.Text = "Открыть...";
-            // 
-            // mFileSave
-            // 
-            this.mFileSave.Name = "mFileSave";
-            this.mFileSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.mFileSave.Size = new System.Drawing.Size(226, 22);
-            this.mFileSave.Text = "Сохранить";
-            // 
-            // mFileSaveAs
-            // 
-            this.mFileSaveAs.Name = "mFileSaveAs";
-            this.mFileSaveAs.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.S)));
-            this.mFileSaveAs.Size = new System.Drawing.Size(226, 22);
-            this.mFileSaveAs.Text = "Сохранить как...";
-            // 
-            // mFilePageParam
-            // 
-            this.mFilePageParam.Name = "mFilePageParam";
-            this.mFilePageParam.Size = new System.Drawing.Size(226, 22);
-            this.mFilePageParam.Text = "Параметры страницы";
-            // 
-            // mFilePrint
-            // 
-            this.mFilePrint.Name = "mFilePrint";
-            this.mFilePrint.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.mFilePrint.Size = new System.Drawing.Size(226, 22);
-            this.mFilePrint.Text = "Печать...";
-            // 
-            // mFileExit
-            // 
-            this.mFileExit.Name = "mFileExit";
-            this.mFileExit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.mFileExit.Size = new System.Drawing.Size(226, 22);
-            this.mFileExit.Text = "Выход";
             // 
             // mEditCancel
             // 
@@ -249,6 +234,15 @@
             this.mEditTime.Size = new System.Drawing.Size(212, 22);
             this.mEditTime.Text = "Время и дата";
             // 
+            // mFormat
+            // 
+            this.mFormat.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mFormatTransfer,
+            this.mFormatFont});
+            this.mFormat.Name = "mFormat";
+            this.mFormat.Size = new System.Drawing.Size(62, 20);
+            this.mFormat.Text = "Формат";
+            // 
             // mFormatTransfer
             // 
             this.mFormatTransfer.CheckOnClick = true;
@@ -262,24 +256,40 @@
             this.mFormatFont.Size = new System.Drawing.Size(183, 22);
             this.mFormatFont.Text = "Шрифт";
             // 
+            // mView
+            // 
+            this.mView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mViewStatusStrip});
+            this.mView.Name = "mView";
+            this.mView.Size = new System.Drawing.Size(39, 20);
+            this.mView.Text = "Вид";
+            // 
             // mViewStatusStrip
             // 
             this.mViewStatusStrip.Checked = true;
             this.mViewStatusStrip.CheckOnClick = true;
             this.mViewStatusStrip.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mViewStatusStrip.Name = "mViewStatusStrip";
-            this.mViewStatusStrip.Size = new System.Drawing.Size(180, 22);
+            this.mViewStatusStrip.Size = new System.Drawing.Size(173, 22);
             this.mViewStatusStrip.Text = "Строка состояния";
+            // 
+            // mHelp
+            // 
+            this.mHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mHelpAboutProgram});
+            this.mHelp.Name = "mHelp";
+            this.mHelp.Size = new System.Drawing.Size(65, 20);
+            this.mHelp.Text = "Справка";
             // 
             // mHelpAboutProgram
             // 
             this.mHelpAboutProgram.Name = "mHelpAboutProgram";
-            this.mHelpAboutProgram.Size = new System.Drawing.Size(180, 22);
+            this.mHelpAboutProgram.Size = new System.Drawing.Size(149, 22);
             this.mHelpAboutProgram.Text = "О программе";
             // 
-            // statusStrip1
+            // statusStrip
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.statusLab1,
             this.statusLinesCount,
             this.statusLab2,
@@ -288,11 +298,11 @@
             this.statusCharSpaceCount,
             this.statusLab4,
             this.statusCharCount});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 428);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(800, 22);
-            this.statusStrip1.TabIndex = 1;
-            this.statusStrip1.Text = "statusStrip1";
+            this.statusStrip.Location = new System.Drawing.Point(0, 428);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(800, 22);
+            this.statusStrip.TabIndex = 1;
+            this.statusStrip.Text = "statusStrip1";
             // 
             // statusLab1
             // 
@@ -351,6 +361,16 @@
             this.notebox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.notebox.Size = new System.Drawing.Size(800, 404);
             this.notebox.TabIndex = 2;
+            this.notebox.TextChanged += new System.EventHandler(this.notebox_TextChanged);
+            // 
+            // printDialog
+            // 
+            this.printDialog.Document = this.printDocument;
+            this.printDialog.UseEXDialog = true;
+            // 
+            // pageSetupDialog
+            // 
+            this.pageSetupDialog.Document = this.printDocument;
             // 
             // MainForm
             // 
@@ -358,15 +378,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.notebox);
-            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "MainForm";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
+            this.Leave += new System.EventHandler(this.MainForm_Leave);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,7 +422,7 @@
         private System.Windows.Forms.ToolStripMenuItem mFormatFont;
         private System.Windows.Forms.ToolStripMenuItem mViewStatusStrip;
         private System.Windows.Forms.ToolStripMenuItem mHelpAboutProgram;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripStatusLabel statusLab1;
         private System.Windows.Forms.ToolStripStatusLabel statusLinesCount;
         private System.Windows.Forms.ToolStripStatusLabel statusLab2;
@@ -410,6 +432,9 @@
         private System.Windows.Forms.ToolStripStatusLabel statusLab4;
         private System.Windows.Forms.ToolStripStatusLabel statusCharCount;
         public System.Windows.Forms.TextBox notebox;
+        private System.Drawing.Printing.PrintDocument printDocument;
+        private System.Windows.Forms.PrintDialog printDialog;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog;
     }
 }
 
